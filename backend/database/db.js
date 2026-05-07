@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
-const connectDB = async () => {
+const connectDB = async() => {
     try {
-        // Sirf process.env.MONGO_URI, koi extra strings nahi
-        await mongoose.connect(process.env.MONGO_URI); 
-        console.log('MongoDb Connect Successfully ✅');
+        await mongoose.connect(`${process.env.MONGO_URI}/authentication`)
+        console.log('MongoDb Connect Successfully');
+        
     } catch (error) {
-        console.log('Mongodb Connection Error ❌', error.message);
+        console.log('Mongodb Connection Error',error);
+        
     }
 }
 
-export default connectDB;
+export default connectDB
